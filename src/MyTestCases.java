@@ -16,7 +16,7 @@ public class MyTestCases {
 	WebDriver driver = new ChromeDriver();
 
 	String website = "https://ae.almosafer.com/en";
-	
+
 	Random rand = new Random();
 
 	@BeforeTest
@@ -102,27 +102,27 @@ public class MyTestCases {
 		String ActualArrival = driver
 				.findElement(By.cssSelector("div[class='sc-OxbzP sc-bYnzgO bojUIa'] span[class='sc-fvLVrH hNjEjT']"))
 				.getText();
-		
+
 		String ExpectedArrival = Integer.toString(dayAfterTomorrow);
-		
+
 		Assert.assertEquals(ActualArrival, ExpectedArrival);
 
 	}
-	
+
 	@Test(priority = 8)
 	public void RandomlyChangeLang() {
-		String []myWebsites = {"https://ae.almosafer.com/en","https://ae.almosafer.com/ar"};
-		
-		int RandomIndex =rand.nextInt(2);
-		
+		String[] myWebsites = { "https://ae.almosafer.com/en", "https://ae.almosafer.com/ar" };
+
+		int RandomIndex = rand.nextInt(2);
+
 		driver.get(myWebsites[RandomIndex]);
-		
-		if(driver.getCurrentUrl().equals("https://ae.almosafer.com/en")) {
+
+		if (driver.getCurrentUrl().equals("https://ae.almosafer.com/en")) {
 			String ActualLanguage = driver.findElement(By.tagName("html")).getAttribute("lang");
 			String ExpectedLanguage = "en";
 
 			Assert.assertEquals(ActualLanguage, ExpectedLanguage);
-		}else {
+		} else {
 			String ActualLanguage = driver.findElement(By.tagName("html")).getAttribute("lang");
 			String ExpectedLanguage = "ar";
 
