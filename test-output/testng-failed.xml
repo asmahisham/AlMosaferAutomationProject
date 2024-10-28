@@ -5,13 +5,9 @@
     <classes>
       <class name="MyTestCases">
         <methods>
-          <include name="CheckContactNumber"/>
-          <include name="CheckEnglishLangIsDefault"/>
-          <include name="CheckDepartureDate"/>
-          <include name="CheckAppleLogoIsInFooter"/>
+          <include name="CheckSortOption"/>
           <include name="mySetup"/>
-          <include name="CheckDefaultCurrencyIsSAR"/>
-          <include name="CheckHotelTabIsNotSelected"/>
+          <include name="CheckPageIsLoaded"/>
         </methods>
       </class> <!-- MyTestCases -->
     </classes>
