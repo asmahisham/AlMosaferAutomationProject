@@ -51,7 +51,7 @@ public class Parameters {
 		driver.manage().window().maximize();
 		driver.get(website);
 	}
-	
+
 	public void affirmCurrencyToBeSAR() throws InterruptedException {
 		WebElement currencyButton = driver.findElement(By.xpath("//button[@data-testid='Header__CurrencySelector']"));
 		currencyButton.click();
