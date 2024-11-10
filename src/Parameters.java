@@ -103,7 +103,7 @@ public class Parameters {
 	}
 
 	public void SortOption() {
-		WebElement container = driver.findElement(By.xpath("//*[@id=\"__next\"]/div[2]/div[5]/div"));
+		WebElement container = driver.findElement(By.cssSelector(".__ds__comp.undefined.MuiBox-root.muiltr-1smo8f0"));
 		if (driver.getCurrentUrl().contains("en")) {
 			List<WebElement> allPricesList = container.findElements(By.cssSelector(
 					".MuiTypography-root.MuiTypography-heading3SemBld.__ds__comp.undefined.muiltr-18vmb2l"));
