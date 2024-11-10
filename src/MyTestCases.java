@@ -24,12 +24,13 @@ public class MyTestCases extends Parameters {
 	}
 
 	@Test(priority = 2)
-	public void CheckDefaultCurrencyIsSAR() {
+	public void CheckDefaultCurrencyIsSAR() throws InterruptedException {
 		String ActualCurrency = driver.findElement(By.xpath("//button[@data-testid='Header__CurrencySelector']"))
 				.getText();
 
 		Assert.assertEquals(ActualCurrency, ExpectedCurrency);
-
+		
+		affirmCurrencyToBeSAR();
 	}
 
 	@Test(priority = 3)

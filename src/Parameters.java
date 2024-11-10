@@ -51,6 +51,15 @@ public class Parameters {
 		driver.manage().window().maximize();
 		driver.get(website);
 	}
+	
+	public void affirmCurrencyToBeSAR() throws InterruptedException {
+		WebElement currencyButton = driver.findElement(By.xpath("//button[@data-testid='Header__CurrencySelector']"));
+		currencyButton.click();
+		WebElement container = driver.findElement(By.cssSelector(".sc-cTjmhe.eXMQfD"));
+		Thread.sleep(1000);
+		WebElement currencySAR = container.findElement(By.xpath("//a[@data-testid='CurrencySelection__SAR']"));
+		currencySAR.click();
+	}
 
 	public void CheckTheWebsiteLanguage(WebElement HotelSearchBar) throws InterruptedException {
 		if (driver.getCurrentUrl().equals("https://ae.almosafer.com/en")) {
@@ -98,8 +107,8 @@ public class Parameters {
 		if (driver.getCurrentUrl().contains("en")) {
 			List<WebElement> allPricesList = container.findElements(By.cssSelector(
 					".MuiTypography-root.MuiTypography-heading3SemBld.__ds__comp.undefined.muiltr-18vmb2l"));
-			int LowestPrice = Integer.parseInt(allPricesList.get(0).getText().replace("AED ", ""));
-			int HighestPrice = Integer.parseInt(allPricesList.getLast().getText().replace("AED ", ""));
+			int LowestPrice = Integer.parseInt(allPricesList.get(0).getText().replace("SAR ", ""));
+			int HighestPrice = Integer.parseInt(allPricesList.getLast().getText().replace("SAR ", ""));
 
 			boolean ActualValue = LowestPrice < HighestPrice;
 			boolean ExpectedValue = true;
@@ -109,8 +118,8 @@ public class Parameters {
 		} else {
 			List<WebElement> allPricesList = container.findElements(By.cssSelector(
 					".MuiTypography-root.MuiTypography-heading3SemBld.__ds__comp.undefined.muirtl-1l5b3qq"));
-			int LowestPrice = Integer.parseInt(allPricesList.get(0).getText().replace("د.إ. ", ""));
-			int HighestPrice = Integer.parseInt(allPricesList.getLast().getText().replace("د.إ. ", ""));
+			int LowestPrice = Integer.parseInt(allPricesList.get(0).getText().replace("ر.س. ", ""));
+			int HighestPrice = Integer.parseInt(allPricesList.getLast().getText().replace("ر.س. ", ""));
 
 			boolean ActualValue = LowestPrice < HighestPrice;
 			boolean ExpectedValue = true;
