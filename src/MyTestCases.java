@@ -29,7 +29,7 @@ public class MyTestCases extends Parameters {
 				.getText();
 
 		Assert.assertEquals(ActualCurrency, ExpectedCurrency);
-		
+
 		affirmCurrencyToBeSAR();
 	}
 
