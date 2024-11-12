@@ -1,3 +1,5 @@
+import java.io.IOException;
+
 import org.openqa.selenium.By;
 
 import org.openqa.selenium.WebElement;
@@ -16,21 +18,25 @@ public class MyTestCases extends Parameters {
 	}
 
 	@Test(priority = 1)
-	public void CheckEnglishLangIsDefault() {
+	public void CheckEnglishLangIsDefault() throws InterruptedException, IOException {
 		String ActualLanguage = driver.findElement(By.tagName("html")).getAttribute("lang");
 
 		Assert.assertEquals(ActualLanguage, ExpectedLanguage);
+		
+		ScreenShot();
 
 	}
 
 	@Test(priority = 2)
-	public void CheckDefaultCurrencyIsSAR() throws InterruptedException {
+	public void CheckDefaultCurrencyIsSAR() throws InterruptedException, IOException {
 		String ActualCurrency = driver.findElement(By.xpath("//button[@data-testid='Header__CurrencySelector']"))
 				.getText();
 
 		Assert.assertEquals(ActualCurrency, ExpectedCurrency);
 
 		affirmCurrencyToBeSAR();
+		
+		ScreenShot();
 	}
 
 	@Test(priority = 3)
@@ -109,7 +115,7 @@ public class MyTestCases extends Parameters {
 
 	@Test(priority = 10)
 	public void CheckSortOption() throws InterruptedException {
-		// Thread.sleep(10000);
+		//Thread.sleep(10000);
 
 		WebElement LowestPriceButton = driver.findElement(By.xpath("//div[@data-testid='srp_sort_LOWEST_PRICE']"));
 		LowestPriceButton.click();

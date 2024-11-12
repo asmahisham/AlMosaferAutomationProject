@@ -1,8 +1,14 @@
+import java.io.File;
+import java.io.IOException;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -50,6 +56,23 @@ public class Parameters {
 	public void SetupToEnterWebsite() {
 		driver.manage().window().maximize();
 		driver.get(website);
+	}
+	
+	public void ScreenShot() throws InterruptedException, IOException {
+		Thread.sleep(3000);
+
+		Date myDate = new Date();
+
+		String fileName = myDate.toString().replace(":", "-");
+
+		System.out.println(fileName);
+
+		TakesScreenshot screenshot = (TakesScreenshot) driver;
+		
+		File SrcFile = screenshot.getScreenshotAs(OutputType.FILE);
+		File destFile = new File("./ScreenShot/" + fileName + ".png");
+		
+		FileUtils.copyFile(SrcFile, destFile);
 	}
 
 	public void affirmCurrencyToBeSAR() throws InterruptedException {
